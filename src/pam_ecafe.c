@@ -204,6 +204,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 	      g_object_unref (proxy);
 	      return PAM_AUTHINFO_UNAVAIL;
 	    }
+	    pam_set_item(ph, PAM_USER, "ecafe");
   }
 
   g_object_unref (proxy);
@@ -251,4 +252,11 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 		break;
 	}
 }
+
+PAM_EXTERN int
+pam_sm_setcred(pam_handle_t *pamh, int flags, int argc, const char *argv[])
+{
+	return PAM_SUCCESS;
+}
+
 

@@ -268,7 +268,55 @@ pam_sm_open_session(pam_handle_t *pamh, int flags, int argc, const char **argv)
 PAM_EXTERN int
 pam_sm_close_session(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-	return PAM_SUCCESS;
+	DBusGConnection *connection;
+	GError *error;
+	DBusGProxy *proxy;
+	int retval;
+	int val = 0;
+	char *strret;
+
+	g_type_init ();
+
+	error = NULL;
+	connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
+ 	if (connection == NULL) {
+		g_error_free (error);
+		return PAM_SESSION_ERR;
+	}
+
+	/* Create a proxy object for the "bus driver" */
+  
+	proxy = dbus_g_proxy_new_for_name (connection,
+                                     "org.ecafe.service",
+				     "/org/ecafe/daemon",
+				     "org.ecafe.interface");
+
+	/* Call connect_customer method, wait for reply */
+	  error = NULL;
+	  if (!dbus_g_proxy_call (proxy, "disconnect", &error,	G_TYPE_INVALID, G_TYPE_INT, &val, 
+									G_TYPE_STRING, &strret,
+									G_TYPE_INVALID))
+	    {
+	      // Just do demonstrate remote exceptions versus regular GError
+	      if (error->domain == DBUS_GERROR && error->code == DBUS_GERROR_REMOTE_EXCEPTION)
+		g_printerr ("Caught remote method exception %s: %s",
+			    dbus_g_error_get_name (error),
+			    error->message);
+	      else
+		g_printerr ("Error: %s\n", error->message);
+	      g_error_free (error);
+	      g_object_unref (proxy);
+	      return PAM_SESSION_ERR;
+	    }
+
+	switch(val) {
+		case -3:
+			return PAM_SESSION_ERR;
+			break;
+		case 1:
+			return PAM_SUCCESS;
+			break;
+	}
 }
 
 

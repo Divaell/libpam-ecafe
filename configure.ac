@@ -42,7 +42,7 @@ CFLAGS="$CFLAGS -L/lib"
 # Checks for libraries.
 AC_CHECK_HEADER([security/pam_modules.h],, [AC_MSG_ERROR([*** Sorry, you have to install the PAM development files ***])])
 
-LIBS="$LIBS -ldl -lpam -lpam_misc"
+LIBS="$LIBS -lpam"
 
 case "$host" in
   *-*-linux*)
@@ -78,11 +78,6 @@ PKG_CHECK_MODULES(GLIB, glib-2.0 >= 2.10, dummy=yes,
                                 AC_MSG_ERROR(libglib-2.0 is required))
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
-
-PKG_CHECK_MODULES(DBUS, dbus-1 >= 1.0, dummy=yes,
-				AC_MSG_ERROR(libdbus is required))
-AC_SUBST(DBUS_CFLAGS)
-AC_SUBST(DBUS_LIBS)
 
 PKG_CHECK_MODULES(DBUS_GLIB, dbus-glib-1 >= 0.70, dummy=yes,
 				AC_MSG_ERROR(libdbus-glib is required))

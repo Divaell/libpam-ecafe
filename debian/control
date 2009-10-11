@@ -1,0 +1,15 @@
+Source: libpam-ecafe
+Section: admin
+Priority: extra
+Maintainer: Guillaume Viguier <guillaume@wedus.org>
+Build-Depends: debhelper (>= 7), autotools-dev, libpam0g-dev (>= 1.0.1), libdbus-glib-1-dev
+Standards-Version: 3.8.0
+Homepage: http://www.github.com/gviguier
+
+Package: libpam-ecafe
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Pluggable Authentication Module for ECafe
+ This package provides an interface between the ECafe daemon and the
+ PAM user authentication system. It allows users to login to a client
+ machine with either a timecode or a customer account.

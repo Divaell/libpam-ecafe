@@ -8,7 +8,7 @@ Homepage: http://www.github.com/gviguier
 
 Package: libpam-ecafe
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}
 Description: Pluggable Authentication Module for ECafe
  This package provides an interface between the ECafe daemon and the
  PAM user authentication system. It allows users to login to a client

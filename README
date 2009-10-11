@@ -1,0 +1,8 @@
+ This is a PAM module designed to work with the ECafe Internet Cafe management software.
+ 
+ This module is to be installed on a client machine and will allow clients to connect either with a timecode or with a customer's account. This PAM module talks to the ECafeDaemon through DBus.
+ 
+ In order to compile and install:
+  ./configure
+  make
+  sudo make install

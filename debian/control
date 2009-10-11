@@ -1,4 +1,4 @@
-Source: libpam-ecafe
+Source: pam-ecafe
 Section: admin
 Priority: extra
 Maintainer: Guillaume Viguier <guillaume@wedus.org>

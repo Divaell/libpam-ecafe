@@ -21,7 +21,7 @@
 # along with pam_ecafe.  If not, see <http://www.gnu.org/licenses/>.
 
 AC_PREREQ(2.61)
-AC_INIT([libpam-ecafe],[0.1],[Guillaume Viguier <guillaume@wedus.org>])
+AC_INIT([pam-ecafe],[0.1],[Guillaume Viguier <guillaume@wedus.org>])
 AC_CONFIG_SRCDIR([src/pam_ecafe.c])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([foreign -Wall])

@@ -27,7 +27,6 @@
 #include <security/pam_modules.h>
 
 #include <glib.h>
-#include <dbus/dbus.h>
 #include <dbus/dbus-glib.h>
 
 

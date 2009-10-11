@@ -213,12 +213,12 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -DSBINDIR=\"@sbindir@\" @GLIB_CFLAGS@ @DBUS_CFLAGS@ @DBUS_GLIB_CFLAGS@
+AM_CFLAGS = -DSBINDIR=\"@sbindir@\" @GLIB_CFLAGS@ @DBUS_GLIB_CFLAGS@
 pamdir = @PAM_MODDIR@
 pam_LTLIBRARIES = pam_ecafe.la
 pam_ecafe_la_SOURCES = pam_ecafe.c
 pam_ecafe_la_LDFLAGS = -module -avoid-version
-pam_ecafe_la_LIBADD = @DBUS_GLIB_LIBS@ @DBUS_LIBS@ @GLIB_LIBS@
+pam_ecafe_la_LIBADD = @DBUS_GLIB_LIBS@ @GLIB_LIBS@
 pam_ecafe_la_CFLAGS = $(AM_CFLAGS)
 all: all-am
 

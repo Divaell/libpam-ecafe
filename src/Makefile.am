@@ -17,12 +17,12 @@
 # You should have received a copy of the GNU General Public License
 # along with pam_ecafe.  If not, see <http://www.gnu.org/licenses/>.
 
-AM_CFLAGS = -DSBINDIR=\"@sbindir@\" @GLIB_CFLAGS@ @DBUS_CFLAGS@ @DBUS_GLIB_CFLAGS@
+AM_CFLAGS = -DSBINDIR=\"@sbindir@\" @GLIB_CFLAGS@ @DBUS_GLIB_CFLAGS@
 
 pamdir = @PAM_MODDIR@
 pam_LTLIBRARIES = pam_ecafe.la
 
 pam_ecafe_la_SOURCES = pam_ecafe.c
 pam_ecafe_la_LDFLAGS = -module -avoid-version
-pam_ecafe_la_LIBADD = @DBUS_GLIB_LIBS@ @DBUS_LIBS@ @GLIB_LIBS@
+pam_ecafe_la_LIBADD = @DBUS_GLIB_LIBS@ @GLIB_LIBS@
 pam_ecafe_la_CFLAGS = $(AM_CFLAGS)

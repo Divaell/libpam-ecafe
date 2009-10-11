@@ -17542,11 +17542,6 @@ fi
 
 
 
-#PKG_CHECK_MODULES(DBUS, dbus-1 >= 1.0, dummy=yes,
-#				AC_MSG_ERROR(libdbus is required))
-#AC_SUBST(DBUS_CFLAGS)
-#AC_SUBST(DBUS_LIBS)
-
 
 pkg_failed=no
 { $as_echo "$as_me:$LINENO: checking for DBUS_GLIB" >&5

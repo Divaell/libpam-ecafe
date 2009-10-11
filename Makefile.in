@@ -14,23 +14,24 @@
 
 @SET_MAKE@
 
-# $Id: Makefile.am 13 2003-07-31 12:40:54Z lennart $
-
+# Copyright (C) 2009 Guillaume Viguier-Just
+#
+# Author: Guillaume Viguier-Just <guillaume@wedus.org>
+#
 # This file is part of pam_ecafe.
 #
-# pam_ecafe is free software; you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
+# pam_ecafe is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# pam_ecafe is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-# General Public License for more details.
+# pam_ecafe is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with pam_ecafe; if not, write to the Free Software Foundation,
-# Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+# along with pam_ecafe.  If not, see <http://www.gnu.org/licenses/>.
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkglibdir = $(libdir)/@PACKAGE@
@@ -50,10 +51,10 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = .
-DIST_COMMON = $(am__configure_deps) $(srcdir)/Makefile.am \
+DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(top_srcdir)/configure config.guess config.sub depcomp \
-	install-sh ltmain.sh missing
+	$(top_srcdir)/configure COPYING config.guess config.sub \
+	depcomp install-sh ltmain.sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -211,8 +212,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-
-# EXTRA_DIST=bootstrap.sh README LICENSE 
+EXTRA_DIST = README COPYING 
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = src
 all: config.h

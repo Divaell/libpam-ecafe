@@ -1,14 +1,14 @@
 This package was debianized by:
 
-    Guillaume Viguier-Just <guillaume@wedus.org> on Mon, 05 Oct 2009 22:48:00 -0400
+    Guillaume Viguier-Just <guillaume@viguierjust.com> on Mon, 05 Oct 2009 22:48:00 -0400
 
 It was downloaded from:
 
-    http://www.github.com/gviguier/
+    http://www.github.com/guillaumev
 
 Upstream Author(s):
 
-    Guillaume Viguier-Just <guillaume@wedus.org>
+    Guillaume Viguier-Just <guillaume@viguierjust.com>
 
 Copyright:
 
@@ -34,6 +34,6 @@ Public License can be found in `/usr/share/common-licenses/GPL-3'.
 
 The Debian packaging is:
 
-    Copyright C) 2009, Guillaume Viguier-Just <guillaume@wedus.org>
+    Copyright C) 2009, Guillaume Viguier-Just <guillaume@viguierjust.com>
 
 and is licensed under the GPL, see above.

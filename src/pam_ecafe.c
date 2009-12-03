@@ -150,7 +150,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 		return retval;
 
 	if(is_timecode(user) == 0) {
-		/* Customer authentication */
+		/* User authentication */
 		/* Get password */
 		pam_get_item (ph, PAM_AUTHTOK, (void *) &password);
 
@@ -169,9 +169,9 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 		}
 
 
-		/* Call connect_customer method, wait for reply */
+		/* Call connect_user method, wait for reply */
 		error = NULL;
-		if (!dbus_g_proxy_call (proxy, "connect_customer", &error, G_TYPE_STRING, user, 
+		if (!dbus_g_proxy_call (proxy, "connect_user", &error, G_TYPE_STRING, user, 
 					G_TYPE_STRING, password,
 					G_TYPE_INVALID, G_TYPE_INT, &val, 
 					G_TYPE_STRING, &strret,

@@ -3,7 +3,7 @@
 
 # Copyright (C) 2009 Guillaume Viguier-Just
 #
-# Author: Guillaume Viguier-Just <guillaume@wedus.org>
+# Author: Guillaume Viguier-Just <guillaume@viguierjust.com>
 #
 # This file is part of pam_ecafe.
 #
@@ -83,6 +83,13 @@ PKG_CHECK_MODULES(DBUS_GLIB, dbus-glib-1 >= 0.70, dummy=yes,
 				AC_MSG_ERROR(libdbus-glib is required))
 AC_SUBST(DBUS_GLIB_CFLAGS)
 AC_SUBST(DBUS_GLIB_LIBS)
+
+# Language support
+GETTEXT_PACKAGE=libpam-ecafe
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Package name for gettext])
+
+AM_GLIB_GNU_GETTEXT
 
 
 

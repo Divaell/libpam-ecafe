@@ -105,6 +105,7 @@ int _set_auth_tok (  pam_handle_t *pamh,
 
 /* Initializes gettext for internationalization */
 void init_i18n() {
+	setlocale(LC_ALL, "");
 	bindtextdomain(PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(PACKAGE, "UTF-8");
 	textdomain(PACKAGE);
@@ -331,6 +332,7 @@ pam_sm_close_session(pam_handle_t *pamh, int flags, int argc, const char **argv)
 			return PAM_SUCCESS;
 			break;
 	}
+	return PAM_SUCCESS;
 }
 
 

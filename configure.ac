@@ -86,6 +86,7 @@ AC_SUBST(DBUS_GLIB_LIBS)
 
 # i18n support
 AM_GNU_GETTEXT([external])
+ALL_LINGUAS=fr
 
 
 AC_CONFIG_FILES([src/Makefile Makefile po/Makefile.in])

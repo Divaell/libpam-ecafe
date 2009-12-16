@@ -17354,6 +17354,7 @@ $as_echo "#define HAVE_DCGETTEXT 1" >>confdefs.h
 
 
 
+ALL_LINGUAS=fr
 
 
 ac_config_files="$ac_config_files src/Makefile Makefile po/Makefile.in"

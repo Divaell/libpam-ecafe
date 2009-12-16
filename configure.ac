@@ -84,7 +84,9 @@ PKG_CHECK_MODULES(DBUS_GLIB, dbus-glib-1 >= 0.70, dummy=yes,
 AC_SUBST(DBUS_GLIB_CFLAGS)
 AC_SUBST(DBUS_GLIB_LIBS)
 
+# i18n support
+AM_GNU_GETTEXT([external])
 
 
-AC_CONFIG_FILES([src/Makefile Makefile])
+AC_CONFIG_FILES([src/Makefile Makefile po/Makefile.in])
 AC_OUTPUT

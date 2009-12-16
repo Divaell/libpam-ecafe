@@ -17,6 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with pam_ecafe.  If not, see <http://www.gnu.org/licenses/>.
 
-EXTRA_DIST=README COPYING 
+EXTRA_DIST= config.rpath m4/ChangeLog README COPYING 
 ACLOCAL_AMFLAGS=-I m4
-SUBDIRS=src
+SUBDIRS= po src m4

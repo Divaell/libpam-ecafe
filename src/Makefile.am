@@ -26,3 +26,6 @@ pam_ecafe_la_SOURCES = pam_ecafe.c
 pam_ecafe_la_LDFLAGS = -module -avoid-version
 pam_ecafe_la_LIBADD = @DBUS_GLIB_LIBS@ @GLIB_LIBS@
 pam_ecafe_la_CFLAGS = $(AM_CFLAGS)
+
+localedir = $(datadir)/locale
+DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@

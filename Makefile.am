@@ -19,4 +19,4 @@
 
 EXTRA_DIST= config.rpath m4/ChangeLog README COPYING 
 ACLOCAL_AMFLAGS=-I m4
-SUBDIRS= po src m4
+SUBDIRS= po src

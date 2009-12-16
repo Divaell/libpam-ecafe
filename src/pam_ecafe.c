@@ -161,7 +161,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 			"org.ecafe.interface");
 
 	/* Get username */
-	pam_set_item(ph, PAM_USER_PROMPT, _("Timecode or username:"))
+	pam_set_item(ph, PAM_USER_PROMPT, _("Timecode or username:"));
 	retval = pam_get_user(ph, &user, NULL);
 	if (retval != PAM_SUCCESS)
 		return retval;
@@ -250,7 +250,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 			break;
 		case -8:
 			// Timecode is invalid
-			pam_error(ph, _("Timecode expired or with no time left"))
+			pam_error(ph, _("Timecode expired or with no time left"));
 			return PAM_AUTH_ERR;
 			break;
 		case -9:

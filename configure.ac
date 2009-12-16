@@ -40,7 +40,7 @@ fi
 CFLAGS="$CFLAGS -L/lib"
 
 # Checks for libraries.
-AC_CHECK_HEADER([security/pam_modules.h],, [AC_MSG_ERROR([*** Sorry, you have to install the PAM development files ***])])
+AC_CHECK_HEADERS([security/pam_modules.h security/pam_ext.h],, [AC_MSG_ERROR([*** Sorry, you have to install the PAM development files ***])])
 
 LIBS="$LIBS -lpam"
 
@@ -83,13 +83,6 @@ PKG_CHECK_MODULES(DBUS_GLIB, dbus-glib-1 >= 0.70, dummy=yes,
 				AC_MSG_ERROR(libdbus-glib is required))
 AC_SUBST(DBUS_GLIB_CFLAGS)
 AC_SUBST(DBUS_GLIB_LIBS)
-
-# Language support
-GETTEXT_PACKAGE=libpam-ecafe
-AC_SUBST(GETTEXT_PACKAGE)
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Package name for gettext])
-
-AM_GLIB_GNU_GETTEXT
 
 
 

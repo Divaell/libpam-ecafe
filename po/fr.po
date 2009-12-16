@@ -1,0 +1,34 @@
+# French translations for libpam-ecafe package
+# Traductions françaises du paquet libpam-ecafe.
+# Copyright (C) 2009 Guillaume Viguier-Just
+# This file is distributed under the same license as the libpam-ecafe package.
+# Guillaume Viguier-Just <guillaume@viguierjust.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libpam-ecafe 0.1\n"
+"Report-Msgid-Bugs-To: guillaume@viguierjust.com\n"
+"POT-Creation-Date: 2009-12-16 15:48-0500\n"
+"PO-Revision-Date: 2009-12-16 15:55-0500\n"
+"Last-Translator: Guillaume Viguier <guillaume@viguierjust.com>\n"
+"Language-Team: French <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/pam_ecafe.c:164
+msgid "Timecode or username:"
+msgstr "Code-temps ou identifiant:"
+
+#: src/pam_ecafe.c:243
+msgid "No time left on your account"
+msgstr "Pas de temps restant sur votre compte"
+
+#: src/pam_ecafe.c:248
+msgid "Timecode not found"
+msgstr "Code-temps non trouvé"
+
+#: src/pam_ecafe.c:253
+msgid "Timecode expired or with no time left"
+msgstr "Code-temps expiré ou sans temps restant"

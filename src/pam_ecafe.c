@@ -21,11 +21,18 @@
 
 #define PAM_SM_AUTH
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif /* HAVE_CONFIG_H */
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include <security/pam_modules.h>
 #include <security/pam_ext.h>
+
+#include <libintl.h>
+#define _(String) gettext(String)
 
 #include <glib.h>
 #include <dbus/dbus-glib.h>
@@ -97,11 +104,11 @@ int _set_auth_tok (  pam_handle_t *pamh,
 }
 
 /* Initializes gettext for internationalization */
-/*void init_i18n() {
-	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
-	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-	textdomain(GETTEXT_PACKAGE);
-}*/
+void init_i18n() {
+	bindtextdomain(PACKAGE, LOCALEDIR);
+	bind_textdomain_codeset(PACKAGE, "UTF-8");
+	textdomain(PACKAGE);
+}
 
 /* Tests whether the given username is a timecode or not */
 int is_timecode(const char *user) {
@@ -137,7 +144,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 	char *strret;
 
 	g_type_init ();
-	//init_i18n();
+	init_i18n();
 
 	error = NULL;
 	connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
@@ -154,7 +161,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 			"org.ecafe.interface");
 
 	/* Get username */
-	//pam_set_item(ph, PAM_USER_PROMPT, _("Timecode or username:"))
+	pam_set_item(ph, PAM_USER_PROMPT, _("Timecode or username:"))
 	retval = pam_get_user(ph, &user, NULL);
 	if (retval != PAM_SUCCESS)
 		return retval;
@@ -233,17 +240,17 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 			break;
 		case -6:
 			// No time left (user connection)
-			//pam_error(ph, _("No time left on your account"));
+			pam_error(ph, _("No time left on your account"));
 			return PAM_AUTH_ERR;
 			break;
 		case -7:
 			// Timecode not found
-			//pam_error(ph, _("Timecode not found"));
+			pam_error(ph, _("Timecode not found"));
 			return PAM_USER_UNKNOWN;
 			break;
 		case -8:
 			// Timecode is invalid
-			//pam_error(ph, _("Timecode expired or with no time left"))
+			pam_error(ph, _("Timecode expired or with no time left"))
 			return PAM_AUTH_ERR;
 			break;
 		case -9:

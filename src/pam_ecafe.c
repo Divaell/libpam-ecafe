@@ -32,7 +32,7 @@
 #include <security/pam_ext.h>
 
 #include <libintl.h>
-#define _(String) gettext(String)
+#define _(String) dgettext(PACKAGE, String)
 
 #include <glib.h>
 #include <dbus/dbus-glib.h>
@@ -103,14 +103,6 @@ int _set_auth_tok (  pam_handle_t *pamh,
 	return PAM_SUCCESS;
 }
 
-/* Initializes gettext for internationalization */
-void init_i18n() {
-	setlocale(LC_ALL, "");
-	bindtextdomain(PACKAGE, LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE, "UTF-8");
-	textdomain(PACKAGE);
-}
-
 /* Tests whether the given username is a timecode or not */
 int is_timecode(const char *user) {
 	if(user[0] == '0' ||
@@ -145,7 +137,8 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *ph, int flags, int argc, const 
 	char *strret;
 
 	g_type_init ();
-	init_i18n();
+	/* i18n initialization */
+	bindtextdomain(PACKAGE, LOCALEDIR);
 
 	error = NULL;
 	connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
